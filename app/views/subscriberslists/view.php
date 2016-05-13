@@ -1,0 +1,5 @@
+<?php
+
+	echo $SubscribersLists->content;
+
+?>

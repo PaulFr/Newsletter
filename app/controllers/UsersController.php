@@ -7,8 +7,8 @@ class UsersController extends AppController{
 
     public function login(){
         $this->view->setLayout('login');
-        if(isset($this->Session->get('User')->login))
-            $this->response->redirect('');
+        if(isset($this->Session->get('User')->firstname))
+            $this->response->redirect('dashboard');
 
         if(isset($this->request->datas['User'])){
 
@@ -21,7 +21,7 @@ class UsersController extends AppController{
                     $this->Session->setFlash('Vous êtes maintenant connecté en tant que '.$result->firstname.' '.$result->lastname.'.', 'success');
                     $this->Session->set('User', $result);
                     $this->Session->set('Token', uniqid());
-                    $this->response->redirect('');
+                    $this->response->redirect('dashboard');
                 }else{
                     $this->Session->setFlash('La connexion a échoué. Veuillez vérifier les informations que vous avez entré.', 'error');
                 }
@@ -31,9 +31,9 @@ class UsersController extends AppController{
     }
 
     public function logout($token){
-        if(!isset($this->Session->get('User')->email) || $token != $this->Session->get('Token'))
+        if(!isset($this->Session->get('User')->firstname))
             Core::throwError(404);
-        $this->Session->setFlash('Vous êtes maintenant déconnecté, '.$this->Session->get('User')->login.'.');
+        $this->Session->setFlash('Vous êtes maintenant déconnecté.');
         $this->Session->delete('User');
         $this->response->redirect('users/login');
     }

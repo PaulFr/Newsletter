@@ -3,7 +3,7 @@
 
 
 
-Router::connect('', 'dashboard');
+Router::connect('', 'users/login');
 
 
 ?>

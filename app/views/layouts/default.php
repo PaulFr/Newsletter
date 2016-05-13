@@ -78,10 +78,10 @@
                         <li><a href="<?php echo Router::url('subscribers/create'); ?>">Ajouter un abonné</a></li>
                     </ul>
                 </li>
-                <li class="<?= $this->controller->request->controller == 'lists' ? 'current' : '' ?>"><a href="#"><img src="<?php echo Router::wwwroot('img/icons/menu/list.png'); ?>" alt="" /> Liste de diffusion</a>
+                <li class="<?= $this->controller->request->controller == 'subscribersLists' ? 'current' : '' ?>"><a href="#"><img src="<?php echo Router::wwwroot('img/icons/menu/list.png'); ?>" alt="" /> Liste de diffusion</a>
                     <ul>
-                        <li><a href="<?php echo Router::url('lists'); ?>">Les listes d'abonnés</a></li>
-                        <li><a href="<?php echo Router::url('lists/create'); ?>">Créer une liste de diffusion</a></li>
+                        <li><a href="<?php echo Router::url('subscribersLists'); ?>">Les listes d'abonnés</a></li>
+                        <li><a href="<?php echo Router::url('subscribersLists/create'); ?>">Créer une liste de diffusion</a></li>
                     </ul>
                 </li>
 
