@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Your Admin Panel</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+        <!-- Main stylesheed  (EDIT THIS ONE) -->
+        <link rel="stylesheet" href="../css/style.css" />
+
+        <link rel="stylesheet" href="../js/jwysiwyg/jquery.wysiwyg.old-school.css" />
+        
+        <!-- jQuery AND jQueryUI -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+        
+        <!-- jQuery Cookie - https://github.com/carhartl/jquery-cookie -->
+        <script type="text/javascript" src="../js/cookie/jquery.cookie.js"></script>
+        
+        <!-- jWysiwyg - https://github.com/akzhan/jwysiwyg/ -->
+        <link rel="stylesheet" href="../js/jwysiwyg/jquery.wysiwyg.old-school.css" />
+        <script type="text/javascript" src="../js/jwysiwyg/jquery.wysiwyg.js"></script>
+        
+        
+        <!-- Tooltipsy - http://tooltipsy.com/ -->
+        <script type="text/javascript" src="../js/tooltipsy.min.js"></script>
+        
+        <!-- iPhone checkboxes - http://awardwinningfjords.com/2009/06/16/iphone-style-checkboxes.html -->
+        <script type="text/javascript" src="../js/iphone-style-checkboxes.js"></script>
+        <script type="text/javascript" src="../js/excanvas.js"></script>
+        
+        <!-- Load zoombox (lightbox effect) - http://www.grafikart.fr/zoombox -->
+        <script type="text/javascript" src="../js/zoombox/zoombox.js"></script>
+        
+        <!-- Charts - http://www.filamentgroup.com/lab/update_to_jquery_visualize_accessible_charts_with_html5_from_designing_with/ -->
+        <script type="text/javascript" src="../js/visualize.jQuery.js"></script>
+        
+        <!-- Uniform - http://uniformjs.com/ -->
+        <script type="text/javascript" src="../js/jquery.uniform.js"></script>
+        
+        
+        <!-- Main Javascript that do the magic part (EDIT THIS ONE) -->
+        <script type="text/javascript" src="../js/main.js"></script>
+    </head>
+    <body class="wood dark">
+        
+        <!--              
+                HEAD
+                        --> 
+        <div id="head">
+            <div class="left">
+                <a href="#" class="button profile"><img src="../img/icons/top/huser.png" alt="" /></a>
+                Bonjour, 
+                <a href="#">John Doe</a>
+                |
+                <a href="#">Se déconnecter</a>
+            </div>
+            <div class="right">
+                <form action="#" id="search" class="search placeholder">
+                    <label>Vous recherchez un truc ?</label>
+                    <input type="text" value="" name="q" class="text"/>
+                    <input type="submit" value="rechercher" class="submit"/>
+                </form>
+            </div>
+        </div>
+                
+                
+        <!--            
+                SIDEBAR
+                         --> 
+        <div id="sidebar" class="black">
+            <ul>
+                <li>
+                    <a href="index.php">
+                        <img src="../img/icons/menu/home.png" alt="" />
+                        Tableau de bord
+                    </a>
+                </li>
+                <li class="current"><a href="#"><img src="../img/icons/menu/mail.png" alt="" /> Campagnes</a>
+                    <ul>
+                        <li><a href="forms.html">Mes campagnes</a></li>
+                        <li><a href="index.html">Nouvelle campagne</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="../img/icons/menu/users.png" alt="" /> Abonnés</a>
+                    <ul>
+                        <li><a href="#">Ajouter des abonnés</a></li>
+                        <li><a href="#">Gerer les abonnés</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="../img/icons/menu/list.png" alt="" /> Liste de diffusion</a>
+                    <ul>
+                        <li><a href="#">Créer une liste d'abonnés</a></li>
+                        <li><a href="#">Gérer les listes de diffusion</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="../img/icons/menu/settings.png" alt="" /> Administration</a>
+                    <ul>
+                        <li><a href="#">Paramètre du compte</a></li>
+                        <li><a href="#">Gérer les utilisateurs</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="#collapse" id="menucollapse">&#9664; Réduire la sidebar</a>
+
+        </div>
+                
+                
+                
+                
+        <!--            
+              CONTENT 
+                        --> 
+        <div id="content" class="black">
+
+            <h1><img src="../img/icons/cog.png" alt=""> Administration</h1>
+
+            <div class="bloc">
+                <div class="title">Gérer les administrateurs</div>
+                <div class="content">
+
+                    <div class="left">
+                        <form action="#" id="search" class="search placeholder">
+                            <label>Rechercher un administrateur</label>
+                            <input type="text" value="" name="q" class="text"/>
+                            <input type="submit" value="rechercher" class="submit"/>
+                        </form>
+                    </div>
+                    <div class="left">
+                    <a href="#" title="Ajouter un nouvel administrateur"><img src="../img/icons/glyph-add.png" style="padding:5px;"></a>
+                    </div>
+                    <div class="clear"></div>
+                    <br/>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Email</th>
+                                <th>Rôle</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="admin125">
+                                <td>Bob</td>
+                                <td>kelso</td>
+                                <td><a href="mailto:bob.kelso@gmail.com">bob.kelso@gmail.com</a></td>
+                                <td> Super Administrateur</td>
+                                <td class="actions"><a href="#" onclick="deleteItem(this)" class="delete-campagne" title="Supprimer l'administrateur"><img src="../img/icons/actions/delete.png" alt="" /></a></td>
+                            </tr>
+                            <tr id="admin126">
+                                <td>Bob</td>
+                                <td>kelso</td>
+                                <td><a href="mailto:bob.kelso@gmail.com">bob.kelso@gmail.com</a></td>
+                                <td> Administrateur</td>
+                                <td class="actions"><a href="#" onclick="deleteItem(this)" class="delete-campagne" title="Supprimer l'administrateur"><img src="../img/icons/actions/delete.png" alt="" /></a></td>
+                            </tr>
+                            <tr id="admin127">
+                                <td>Bob</td>
+                                <td>kelso</td>
+                                <td><a href="mailto:bob.kelso@gmail.com">bob.kelso@gmail.com</a></td>
+                                <td> Administrateur</td>
+                                <td class="actions"><a href="#" onclick="deleteItem(this)" class="delete-campagne" title="Supprimer l'administrateur"><img src="../img/icons/actions/delete.png" alt="" /></a></td>
+                            </tr>
+                            <tr id="admin128">
+                                <td>Bob</td>
+                                <td>kelso</td>
+                                <td><a href="mailto:bob.kelso@gmail.com">bob.kelso@gmail.com</a></td>
+                                <td> Administrateur</td>
+                                <td class="actions"><a href="#" onclick="deleteItem(this)" class="delete-campagne" title="Supprimer l'administrateur"><img src="../img/icons/actions/delete.png" alt="" /></a></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    <br/>
+
+                    <div class="pagination">
+                        <a href="#" class="prev">«</a>
+                        <a href="#">1</a>
+                        <a href="#" class="current">2</a>
+                        ...
+                        <a href="#">21</a>
+                        <a href="#">22</a>
+                        <a href="#" class="next">»</a>
+                    </div>
+                </div>
+            </div>
+            
+                   
+
+
+
+        </div>
+        
+    </body>
+</html>

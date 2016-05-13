@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Your Admin Panel</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+        <!-- Main stylesheed  (EDIT THIS ONE) -->
+        <link rel="stylesheet" href="../css/style.css" />
+
+        <link rel="stylesheet" href="../js/jwysiwyg/jquery.wysiwyg.old-school.css" />
+        
+        <!-- jQuery AND jQueryUI -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+        
+        <!-- jQuery Cookie - https://github.com/carhartl/jquery-cookie -->
+        <script type="text/javascript" src="../js/cookie/jquery.cookie.js"></script>
+        
+        <!-- jWysiwyg - https://github.com/akzhan/jwysiwyg/ -->
+        <link rel="stylesheet" href="../js/jwysiwyg/jquery.wysiwyg.old-school.css" />
+        <script type="text/javascript" src="../js/jwysiwyg/jquery.wysiwyg.js"></script>
+        
+        
+        <!-- Tooltipsy - http://tooltipsy.com/ -->
+        <script type="text/javascript" src="../js/tooltipsy.min.js"></script>
+        
+        <!-- iPhone checkboxes - http://awardwinningfjords.com/2009/06/16/iphone-style-checkboxes.html -->
+        <script type="text/javascript" src="../js/iphone-style-checkboxes.js"></script>
+        <script type="text/javascript" src="../js/excanvas.js"></script>
+        
+        <!-- Load zoombox (lightbox effect) - http://www.grafikart.fr/zoombox -->
+        <script type="text/javascript" src="../js/zoombox/zoombox.js"></script>
+        
+        <!-- Charts - http://www.filamentgroup.com/lab/update_to_jquery_visualize_accessible_charts_with_html5_from_designing_with/ -->
+        <script type="text/javascript" src="../js/visualize.jQuery.js"></script>
+        
+        <!-- Uniform - http://uniformjs.com/ -->
+        <script type="text/javascript" src="../js/jquery.uniform.js"></script>
+        
+        
+        <!-- Main Javascript that do the magic part (EDIT THIS ONE) -->
+        <script type="text/javascript" src="../js/main.js"></script>
+    </head>
+    <body class="wood dark">
+        
+        <!--              
+                HEAD
+                        --> 
+        <div id="head">
+            <div class="left">
+                <a href="#" class="button profile"><img src="../img/icons/top/huser.png" alt="" /></a>
+                Bonjour, 
+                <a href="#">John Doe</a>
+                |
+                <a href="#">Se déconnecter</a>
+            </div>
+            <div class="right">
+                <form action="#" id="search" class="search placeholder">
+                    <label>Vous recherchez un truc ?</label>
+                    <input type="text" value="" name="q" class="text"/>
+                    <input type="submit" value="rechercher" class="submit"/>
+                </form>
+            </div>
+        </div>
+                
+                
+        <!--            
+                SIDEBAR
+                         --> 
+        <div id="sidebar" class="black">
+            <ul>
+                <li>
+                    <a href="index.php">
+                        <img src="../img/icons/menu/home.png" alt="" />
+                        Tableau de bord
+                    </a>
+                </li>
+                <li class="current"><a href="#"><img src="../img/icons/menu/mail.png" alt="" /> Campagnes</a>
+                    <ul>
+                        <li><a href="forms.html">Mes campagnes</a></li>
+                        <li><a href="index.html">Nouvelle campagne</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="../img/icons/menu/users.png" alt="" /> Abonnés</a>
+                    <ul>
+                        <li><a href="#">Ajouter des abonnés</a></li>
+                        <li><a href="#">Gerer les abonnés</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="../img/icons/menu/list.png" alt="" /> Liste de diffusion</a>
+                    <ul>
+                        <li><a href="#">Créer une liste d'abonnés</a></li>
+                        <li><a href="#">Gérer les listes de diffusion</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="../img/icons/menu/settings.png" alt="" /> Administration</a>
+                    <ul>
+                        <li><a href="#">Paramètre du compte</a></li>
+                        <li><a href="#">Gérer les utilisateurs</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="#collapse" id="menucollapse">&#9664; Réduire la sidebar</a>
+
+        </div>
+                
+                
+                
+                
+        <!--            
+              CONTENT 
+                        --> 
+        <div id="content" class="black">
+
+            <h1><img src="../img/icons/contacts-add.png" alt=""> Liste de diffusion</h1>
+
+            <div class="bloc">
+                <div class="title">Créer une liste de diffusion</div>
+                <div class="content">
+                    <form action="#" id="form" method="GET">
+                        <div class="input medium required">
+                            <label for="nom">Nom de la liste</label>
+                            <input type="text" name="nom">
+                        </div>
+                        <div class="clear"></div>
+                        <div class="input textarea">
+                            <label for="textarea2">Description de la liste</label>
+                            <textarea name="commentaire" id="textarea2" rows="7" cols="4">
+                            </textarea>
+                        </div>
+                        <div class="clear"></div><br/>
+                        
+                        
+                        <div class="left">
+                            <label for="nom">Selectionner les abonnés</label>
+                            <table class="ui compact celled definition table">
+                              <thead class="full-width">
+                                <tr>
+                                  <th><input type="checkbox" class="checkall"></th>
+                                  <th>Nom</th>
+                                  <th>Prénom</th>
+                                  <th>E-mail</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td class="collapsing">
+                                    <div class="ui checkbox">
+                                      <input type="checkbox" tabindex="0" class="hidden">
+                                      <label></label>
+                                    </div>
+                                  </td>
+                                  <td>John Lilki</td>
+                                  <td>September 14, 2013</td>
+                                  <td>jhlilk22@yahoo.com</td>
+                                </tr>
+                                <tr>
+                                  <td class="collapsing">
+                                    <div class="ui fitted slider checkbox">
+                                      <input type="checkbox"> <label></label>
+                                    </div>
+                                  </td>
+                                  <td>Jamie Harington</td>
+                                  <td>January 11, 2014</td>
+                                  <td>jamieharingonton@yahoo.com</td>
+                                </tr>
+                                <tr>
+                                  <td class="collapsing">
+                                    <div class="ui fitted slider checkbox">
+                                      <input type="checkbox"> <label></label>
+                                    </div>
+                                  </td>
+                                  <td>Jill Lewis</td>
+                                  <td>May 11, 2014</td>
+                                  <td>jilsewris22@yahoo.com</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                        </div>
+                        <div class="input textarea right">
+                            <label for="textarea2">Ajouter d'autres destinataires<span class="info">Séparer les emails par des retours à la ligne</span></label>
+                            <textarea name="destinataires-externes" id="destinataires-externes" rows="5" cols="2">
+                            </textarea>
+                        </div>
+                        <div class="clear"></div><br>
+                        <div class="submit primary">
+                            <input type="submit" value="Créer la liste">
+                        </div>  
+                    </form>
+                </div>
+            </div>
+            
+                   
+
+
+
+        </div>
+        
+    </body>
+</html>

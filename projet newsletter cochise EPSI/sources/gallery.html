@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Your Admin Panel</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+        <!-- Main stylesheed  (EDIT THIS ONE) -->
+        <link rel="stylesheet" href="css/style.css" />
+
+        <link rel="stylesheet" href="js/jwysiwyg/jquery.wysiwyg.old-school.css" />
+        
+        <!-- jQuery AND jQueryUI -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+        
+        <!-- jQuery Cookie - https://github.com/carhartl/jquery-cookie -->
+        <script type="text/javascript" src="js/cookie/jquery.cookie.js"></script>
+        
+        <!-- jWysiwyg - https://github.com/akzhan/jwysiwyg/ -->
+        <link rel="stylesheet" href="js/jwysiwyg/jquery.wysiwyg.old-school.css" />
+        <script type="text/javascript" src="js/jwysiwyg/jquery.wysiwyg.js"></script>
+        
+        
+        <!-- Tooltipsy - http://tooltipsy.com/ -->
+        <script type="text/javascript" src="js/tooltipsy.min.js"></script>
+        
+        <!-- iPhone checkboxes - http://awardwinningfjords.com/2009/06/16/iphone-style-checkboxes.html -->
+        <script type="text/javascript" src="js/iphone-style-checkboxes.js"></script>
+        <script type="text/javascript" src="js/excanvas.js"></script>
+        
+        <!-- Load zoombox (lightbox effect) - http://www.grafikart.fr/zoombox -->
+        <script type="text/javascript" src="js/zoombox/zoombox.js"></script>
+        
+        <!-- Charts - http://www.filamentgroup.com/lab/update_to_jquery_visualize_accessible_charts_with_html5_from_designing_with/ -->
+        <script type="text/javascript" src="js/visualize.jQuery.js"></script>
+        
+        <!-- Uniform - http://uniformjs.com/ -->
+        <script type="text/javascript" src="js/jquery.uniform.js"></script>
+        
+        
+        <!-- Main Javascript that do the magic part (EDIT THIS ONE) -->
+        <script type="text/javascript" src="js/main.js"></script>
+    </head>
+    <body class="wood dark">
+        
+        <!--              
+                HEAD
+                        --> 
+        <div id="head">
+            <div class="left">
+                <a href="#" class="button profile"><img src="img/icons/top/huser.png" alt="" /></a>
+                Bonjour, 
+                <a href="#">John Doe</a>
+                |
+                <a href="#">Se déconnecter</a>
+            </div>
+            <div class="right">
+                <form action="#" id="search" class="search placeholder">
+                    <label>Vous recherchez un truc ?</label>
+                    <input type="text" value="" name="q" class="text"/>
+                    <input type="submit" value="rechercher" class="submit"/>
+                </form>
+            </div>
+        </div>
+                
+                
+        <!--            
+                SIDEBAR
+                         --> 
+        <div id="sidebar" class="black">
+            <ul>
+                <li>
+                    <a href="index.php">
+                        <img src="img/icons/menu/inbox.png" alt="" />
+                        Dashboard
+                    </a>
+                </li>
+                <li class="current"><a href="#"><img src="img/icons/menu/layout.png" alt="" /> Démonstration</a>
+                    <ul>
+                        <li><a href="index.html">Dashboard</a></li>
+                        <li><a href="forms.html">Formulaire</a></li>
+                        <li><a href="table.html">Tableau</a></li>
+                        <li><a href="tabs.html">Onglets</a></li>
+                        <li><a href="gallery.html">Galerie</a></li>
+                        <li><a href="notif.html">Notifications</a></li>
+                        <li><a href="charts.html">Graphiques</a></li>
+                        <li><a href="typo.html">Typographie</a></li>
+                        <li><a href="icons.html">Icons</a></li>
+                        <li><a href="calendar.html">Calendrier</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="img/icons/menu/brush.png" alt="" /> Sous menu</a>
+                    <ul>
+                        <li><a href="#">Fake menu #1</a></li>
+                        <li><a href="#">Fake menu #2</a></li>
+                        <li><a href="#">Fake menu #3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="img/icons/menu/brush.png" alt="" /> Sous menu infini</a>
+                    <ul>
+                        <li><a href="#">Fake menu #1</a></li>
+                        <li><a href="#">Fake menu #2</a></li>
+                        <li><a href="#">Fake menu #3</a>
+                        <ul>
+                            <li><a href="#">Fake menu #1</a></li>
+                            <li><a href="#">Fake menu #2</a></li>
+                            <li><a href="#">Fake menu #3</a>
+                                <ul>
+                                    <li><a href="#">Fake menu #1</a></li>
+                                    <li><a href="#">Fake menu #2</a></li>
+                                    <li><a href="#">Fake menu #3</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nosubmenu"><a href="#"><img src="img/icons/menu/lab.png" alt="" /> Ce bouton est inutile</a></li>
+                <li class="nosubmenu"><a href="modal.html" class="zoombox w450 h700"><img src="img/icons/menu/comment.png" alt="" /> Boîte modale</a></li>
+            </ul>
+            <a href="#collapse" id="menucollapse">&#9664; Réduire la sidebar</a>
+
+        </div>
+                
+                
+                
+                
+        <!--            
+              CONTENT 
+                        --> 
+        <div id="content" class="black">
+            <h1><img src="img/icons/pictures.png" alt=""/> Gallery</h1>
+            <div class="bloc">
+                <div class="title">
+                    Galerie
+                </div>
+                <div class="content">
+                    <p>
+                        Vous pouvez avoir une galerie dans un bloc ou en dehors
+                    </p>
+                    <ul class="gallery">
+                        <li>
+                        <a href="#"><img src="http://lorempixum.com/120/80/food/0" alt=""/></a>
+                        <span class="info">Nom de l'image</span>
+                        <a href="#" title="Supprimer Image" class="del">Supprimer</a>
+                        <a href="#" class="over"><span>Editer cette image</span></a>
+                        <a href="http://lorempixum.com/800/600/food/0?.jpg" class="large zoombox" title="full-size">Enlarge</a>
+                        </li>
+                        <li>
+                        <a href="#"><img src="http://lorempixum.com/120/80/food/1" alt=""/></a>
+                        <span class="info">Nom de l'image</span>
+                        <a href="#" title="Supprimer Image" class="del">Supprimer</a>
+                        <a href="#" class="over"><span>Editer cette image</span></a>
+                        <a href="http://lorempixum.com/800/600/food/1?.jpg" class="large zoombox" title="full-size">Enlarge</a>
+                        </li>
+                        <li>
+                        <a href="#"><img src="http://lorempixum.com/120/80/food/2" alt=""/></a>
+                        <span class="info">Nom de l'image</span>
+                        <a href="#" title="Supprimer Image" class="del">Supprimer</a>
+                        <a href="#" class="over"><span>Editer cette image</span></a>
+                        <a href="http://lorempixum.com/800/600/food/2?.jpg" class="large zoombox" title="full-size">Enlarge</a>
+                        </li>
+                        <li>
+                        <a href="#"><img src="http://lorempixum.com/120/80/food/3" alt=""/></a>
+                        <span class="info">Nom de l'image</span>
+                        <a href="#" title="Supprimer Image" class="del">Supprimer</a>
+                        <a href="#" class="over"><span>Editer cette image</span></a>
+                        <a href="http://lorempixum.com/800/600/food/3?.jpg" class="large zoombox" title="full-size">Enlarge</a>
+                        </li>
+                        <li>
+                        <a href="#"><img src="http://lorempixum.com/120/80/food/4" alt=""/></a>
+                        <span class="info">Nom de l'image</span>
+                        <a href="#" title="Supprimer Image" class="del">Supprimer</a>
+                        <a href="#" class="over"><span>Editer cette image</span></a>
+                        <a href="http://lorempixum.com/800/600/food/4?.jpg" class="large zoombox" title="full-size">Enlarge</a>
+                        </li>
+                        <li>
+                        <a href="#"><img src="http://lorempixum.com/120/80/food/5" alt=""/></a>
+                        <span class="info">Nom de l'image</span>
+                        <a href="#" title="Supprimer Image" class="del">Supprimer</a>
+                        <a href="#" class="over"><span>Editer cette image</span></a>
+                        <a href="http://lorempixum.com/800/600/food/5?.jpg" class="large zoombox" title="full-size">Enlarge</a>
+                        </li>
+                        <li>
+                        <a href="#"><img src="http://lorempixum.com/120/80/food/6" alt=""/></a>
+                        <span class="info">Nom de l'image</span>
+                        <a href="#" title="Supprimer Image" class="del">Supprimer</a>
+                        <a href="#" class="over"><span>Editer cette image</span></a>
+                        <a href="http://lorempixum.com/800/600/food/6?.jpg" class="large zoombox" title="full-size">Enlarge</a>
+                        </li>
+                        <li>
+                        <a href="#"><img src="http://lorempixum.com/120/80/food/7" alt=""/></a>
+                        <span class="info">Nom de l'image</span>
+                        <a href="#" title="Supprimer Image" class="del">Supprimer</a>
+                        <a href="#" class="over"><span>Editer cette image</span></a>
+                        <a href="http://lorempixum.com/800/600/food/7?.jpg" class="large zoombox" title="full-size">Enlarge</a>
+                        </li>
+                        <li>
+                        <a href="#"><img src="http://lorempixum.com/120/80/food/8" alt=""/></a>
+                        <span class="info">Nom de l'image</span>
+                        <a href="#" title="Supprimer Image" class="del">Supprimer</a>
+                        <a href="#" class="over"><span>Editer cette image</span></a>
+                        <a href="http://lorempixum.com/800/600/food/8?.jpg" class="large zoombox" title="full-size">Enlarge</a>
+                        </li>
+                        <li>
+                        <a href="#"><img src="http://lorempixum.com/120/80/food/9" alt=""/></a>
+                        <span class="info">Nom de l'image</span>
+                        <a href="#" title="Supprimer Image" class="del">Supprimer</a>
+                        <a href="#" class="over"><span>Editer cette image</span></a>
+                        <a href="http://lorempixum.com/800/600/food/9?.jpg" class="large zoombox" title="full-size">Enlarge</a>
+                        </li>
+                    </ul>
+                    <div class="cb">
+                    </div>
+                </div>
+            </div>
+            <ul class="gallery">
+                <li>
+                <a href="#"><img src="http://lorempixum.com/120/80/food/0" alt=""/></a>
+                <span class="info">Nom de l'image</span>
+                <a href="#" title="Supprimer Image" class="del">Supprimer</a>
+                <a href="#" class="over"><span>Editer cette image</span></a>
+                <a href="http://lorempixum.com/800/600/food/0?.jpg" class="large zoombox" title="full-size">Enlarge</a>
+                </li>
+                <li>
+                <a href="#"><img src="http://lorempixum.com/120/80/food/1" alt=""/></a>
+                <span class="info">Nom de l'image</span>
+                <a href="#" title="Supprimer Image" class="del">Supprimer</a>
+                <a href="#" class="over"><span>Editer cette image</span></a>
+                <a href="http://lorempixum.com/800/600/food/1?.jpg" class="large zoombox" title="full-size">Enlarge</a>
+                </li>
+                <li>
+                <a href="#"><img src="http://lorempixum.com/120/80/food/2" alt=""/></a>
+                <span class="info">Nom de l'image</span>
+                <a href="#" title="Supprimer Image" class="del">Supprimer</a>
+                <a href="#" class="over"><span>Editer cette image</span></a>
+                <a href="http://lorempixum.com/800/600/food/2?.jpg" class="large zoombox" title="full-size">Enlarge</a>
+                </li>
+                <li>
+                <a href="#"><img src="http://lorempixum.com/120/80/food/3" alt=""/></a>
+                <span class="info">Nom de l'image</span>
+                <a href="#" title="Supprimer Image" class="del">Supprimer</a>
+                <a href="#" class="over"><span>Editer cette image</span></a>
+                <a href="http://lorempixum.com/800/600/food/3?.jpg" class="large zoombox" title="full-size">Enlarge</a>
+                </li>
+                <li>
+                <a href="#"><img src="http://lorempixum.com/120/80/food/4" alt=""/></a>
+                <span class="info">Nom de l'image</span>
+                <a href="#" title="Supprimer Image" class="del">Supprimer</a>
+                <a href="#" class="over"><span>Editer cette image</span></a>
+                <a href="http://lorempixum.com/800/600/food/4?.jpg" class="large zoombox" title="full-size">Enlarge</a>
+                </li>
+                <li>
+                <a href="#"><img src="http://lorempixum.com/120/80/food/5" alt=""/></a>
+                <span class="info">Nom de l'image</span>
+                <a href="#" title="Supprimer Image" class="del">Supprimer</a>
+                <a href="#" class="over"><span>Editer cette image</span></a>
+                <a href="http://lorempixum.com/800/600/food/5?.jpg" class="large zoombox" title="full-size">Enlarge</a>
+                </li>
+                <li>
+                <a href="#"><img src="http://lorempixum.com/120/80/food/6" alt=""/></a>
+                <span class="info">Nom de l'image</span>
+                <a href="#" title="Supprimer Image" class="del">Supprimer</a>
+                <a href="#" class="over"><span>Editer cette image</span></a>
+                <a href="http://lorempixum.com/800/600/food/6?.jpg" class="large zoombox" title="full-size">Enlarge</a>
+                </li>
+                <li>
+                <a href="#"><img src="http://lorempixum.com/120/80/food/7" alt=""/></a>
+                <span class="info">Nom de l'image</span>
+                <a href="#" title="Supprimer Image" class="del">Supprimer</a>
+                <a href="#" class="over"><span>Editer cette image</span></a>
+                <a href="http://lorempixum.com/800/600/food/7?.jpg" class="large zoombox" title="full-size">Enlarge</a>
+                </li>
+                <li>
+                <a href="#"><img src="http://lorempixum.com/120/80/food/8" alt=""/></a>
+                <span class="info">Nom de l'image</span>
+                <a href="#" title="Supprimer Image" class="del">Supprimer</a>
+                <a href="#" class="over"><span>Editer cette image</span></a>
+                <a href="http://lorempixum.com/800/600/food/8?.jpg" class="large zoombox" title="full-size">Enlarge</a>
+                </li>
+                <li>
+                <a href="#"><img src="http://lorempixum.com/120/80/food/9" alt=""/></a>
+                <span class="info">Nom de l'image</span>
+                <a href="#" title="Supprimer Image" class="del">Supprimer</a>
+                <a href="#" class="over"><span>Editer cette image</span></a>
+                <a href="http://lorempixum.com/800/600/food/9?.jpg" class="large zoombox" title="full-size">Enlarge</a>
+                </li>
+            </ul>
+            <div class="cb">
+            </div>
+            </div>             
+        </div>
+        
+    </body>
+</html>

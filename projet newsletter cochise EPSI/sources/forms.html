@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Your Admin Panel</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+        <!-- Main stylesheed  (EDIT THIS ONE) -->
+        <link rel="stylesheet" href="css/style.css" />
+
+        <link rel="stylesheet" href="js/jwysiwyg/jquery.wysiwyg.old-school.css" />
+        
+        <!-- jQuery AND jQueryUI -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+        
+        <!-- jQuery Cookie - https://github.com/carhartl/jquery-cookie -->
+        <script type="text/javascript" src="js/cookie/jquery.cookie.js"></script>
+        
+        <!-- jWysiwyg - https://github.com/akzhan/jwysiwyg/ -->
+        <link rel="stylesheet" href="js/jwysiwyg/jquery.wysiwyg.old-school.css" />
+        <script type="text/javascript" src="js/jwysiwyg/jquery.wysiwyg.js"></script>
+        
+        
+        <!-- Tooltipsy - http://tooltipsy.com/ -->
+        <script type="text/javascript" src="js/tooltipsy.min.js"></script>
+        
+        <!-- iPhone checkboxes - http://awardwinningfjords.com/2009/06/16/iphone-style-checkboxes.html -->
+        <script type="text/javascript" src="js/iphone-style-checkboxes.js"></script>
+        <script type="text/javascript" src="js/excanvas.js"></script>
+        
+        <!-- Load zoombox (lightbox effect) - http://www.grafikart.fr/zoombox -->
+        <script type="text/javascript" src="js/zoombox/zoombox.js"></script>
+        
+        <!-- Charts - http://www.filamentgroup.com/lab/update_to_jquery_visualize_accessible_charts_with_html5_from_designing_with/ -->
+        <script type="text/javascript" src="js/visualize.jQuery.js"></script>
+        
+        <!-- Uniform - http://uniformjs.com/ -->
+        <script type="text/javascript" src="js/jquery.uniform.js"></script>
+        
+        
+        <!-- Main Javascript that do the magic part (EDIT THIS ONE) -->
+        <script type="text/javascript" src="js/main.js"></script>
+    </head>
+    <body class="wood dark">
+        
+        <!--              
+                HEAD
+                        --> 
+        <div id="head">
+            <div class="left">
+                <a href="#" class="button profile"><img src="img/icons/top/huser.png" alt="" /></a>
+                Bonjour, 
+                <a href="#">John Doe</a>
+                |
+                <a href="#">Se déconnecter</a>
+            </div>
+            <div class="right">
+                <form action="#" id="search" class="search placeholder">
+                    <label>Vous recherchez un truc ?</label>
+                    <input type="text" value="" name="q" class="text"/>
+                    <input type="submit" value="rechercher" class="submit"/>
+                </form>
+            </div>
+        </div>
+                
+                
+        <!--            
+                SIDEBAR
+                         --> 
+        <div id="sidebar" class="black">
+            <ul>
+                <li>
+                    <a href="index.php">
+                        <img src="img/icons/menu/inbox.png" alt="" />
+                        Dashboard
+                    </a>
+                </li>
+                <li class="current"><a href="#"><img src="img/icons/menu/layout.png" alt="" /> Démonstration</a>
+                    <ul>
+                        <li><a href="index.html">Dashboard</a></li>
+                        <li><a href="forms.html">Formulaire</a></li>
+                        <li><a href="table.html">Tableau</a></li>
+                        <li><a href="tabs.html">Onglets</a></li>
+                        <li><a href="gallery.html">Galerie</a></li>
+                        <li><a href="notif.html">Notifications</a></li>
+                        <li><a href="charts.html">Graphiques</a></li>
+                        <li><a href="typo.html">Typographie</a></li>
+                        <li><a href="icons.html">Icons</a></li>
+                        <li><a href="calendar.html">Calendrier</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="img/icons/menu/brush.png" alt="" /> Sous menu</a>
+                    <ul>
+                        <li><a href="#">Fake menu #1</a></li>
+                        <li><a href="#">Fake menu #2</a></li>
+                        <li><a href="#">Fake menu #3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="img/icons/menu/brush.png" alt="" /> Sous menu infini</a>
+                    <ul>
+                        <li><a href="#">Fake menu #1</a></li>
+                        <li><a href="#">Fake menu #2</a></li>
+                        <li><a href="#">Fake menu #3</a>
+                        <ul>
+                            <li><a href="#">Fake menu #1</a></li>
+                            <li><a href="#">Fake menu #2</a></li>
+                            <li><a href="#">Fake menu #3</a>
+                                <ul>
+                                    <li><a href="#">Fake menu #1</a></li>
+                                    <li><a href="#">Fake menu #2</a></li>
+                                    <li><a href="#">Fake menu #3</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nosubmenu"><a href="#"><img src="img/icons/menu/lab.png" alt="" /> Ce bouton est inutile</a></li>
+                <li class="nosubmenu"><a href="modal.html" class="zoombox w450 h700"><img src="img/icons/menu/comment.png" alt="" /> Boîte modale</a></li>
+            </ul>
+            <a href="#collapse" id="menucollapse">&#9664; Réduire la sidebar</a>
+
+        </div>
+                
+                
+                
+                
+        <!--            
+              CONTENT 
+                        --> 
+        <div id="content" class="black">
+
+            <h1><img src="img/icons/posts.png" alt=""> Forms</h1>
+
+            <div class="bloc">
+                <div class="title">Champs simples</div>
+                <div class="content">
+                    <div class="input">
+                        <label for="input1">Champs texte</label>
+                        <input type="text" id="input1">
+                        Des informations sous ce champs
+                    </div>
+                    <div class="input medium error">
+                        <label for="input2">Champs texte moyen</label>
+                        <input type="text" id="input2">
+                        <span class="error-message">Là il y a une erreur !</span>
+                    </div>
+                    <div class="input long">
+                        <label for="input3">Champs looooooooooooooooooooooooong</label>
+                        <input type="text" id="input3">
+                    </div>
+                    <div class="input loading">
+                        <label for="input4">Chargement</label>
+                        <input type="text" id="input4">
+                    </div>
+                </div>
+            </div>
+            <div class="bloc left">
+                <div class="title">Radios and checkbox</div>
+                <div class="content">
+                    <div class="input">
+                        <label for="file">Envoyer un fichier</label>
+                        <input type="file" id="file">
+                    </div>
+
+                    <div class="input">
+                        <label class="label">Checkboxes</label>
+                        <input type="checkbox" id="check1" checked><label for="check1" class="inline">Et une checkbox</label> <br>
+                        <input type="checkbox" id="check2"><label for="check2" class="inline">Et une autre !</label> <br>
+                    </div>
+                    <div class="input">
+                        <label class="label">Radio</label>
+                        <input type="radio" id="radio1" name="radiobutton"  checked="checked"><label for="radio1" class="inline">Un input radio</label> <br>
+                        <input type="radio" id="radio2"  name="radiobutton"><label for="radio2" class="inline">Et encore un autre</label>
+                    </div>
+                </div>
+            </div>
+            <div class="bloc right">
+                <div class="title">Select et Textarea</div>
+                <div class="content">
+                    <div class="input">
+                        <label for="select">Ceci est un select</label>
+                        <select name="select" id="select">
+                            <option value="1">First value</option>
+                            <option value="2">Second value</option>
+                            <option value="3">Third value</option>
+                        </select>
+                    </div>
+                    <div class="input textarea">
+                        <label for="textarea1">Textarea</label>
+                        <textarea name="text" id="textarea1" rows="7" cols="4"></textarea>
+                    </div>
+                    <div class="submit">
+                        <input type="submit" value="Enregistrer">
+                        <input type="reset" value="Noir" class="black">
+                        <input type="reset" value="Blanc" class="white">
+                    </div>
+                </div>
+            </div>
+
+            <div class="cb"></div>
+
+            <div class="bloc">
+                <div class="title">Champs avancés</div>
+                <div class="content">
+                    <div class="input">
+                        <label for="input4">DatepickerjQuery UI</label>
+                        <input type="text" class="datepicker" id="input4">
+                    </div>
+                    <div class="input textarea">
+                        <label for="textarea2">WYSIWYG Textarea (<a href="https://github.com/akzhan/jwysiwyg">jwysiwyg</a>)</label>
+                        <textarea name="text" id="textarea2" rows="7" class="wysiwyg" cols="4">
+                            Ici <em>vous pouvez</em> avoir du <strong>contenu HTML</strong>
+                        </textarea>
+                    </div>
+                    <div class="input">
+                        <label>Slider : <span></span> €</label>
+                        <input type="text" class="range min-10 max-60" value="35">
+                    </div>
+                    
+                    <div class="input">
+                        <label for="iphonecheck" class="label">Iphone checkbox</label>
+                        <input type="checkbox" id="iphonecheck" class="iphone">
+                    </div>
+                    
+                    
+                </div>
+            </div>
+
+
+            <div class="bloc">
+                <div class="title">Bloc en cours de chargement</div>
+                <div class="content">
+                    Adding a loading on a block is quite simple, you just have to add a div with "loader" class and this is what happen.
+                    <div class="loader"></div>
+                </div>
+            </div>
+
+
+
+        </div>
+        
+    </body>
+</html>
