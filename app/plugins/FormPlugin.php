@@ -55,7 +55,7 @@ class FormPlugin extends AppPlugin{
 			if(!isset($v['type']) || $v['type'] == 'password' || $v['type'] == 'text' || $v['type'] == 'hidden' || $v['type'] == 'file'){
 				$field .= $label.' <input name="'.$name.'" id="'.$id.'" '.(isset($v['class']) ? 'class="'.$v['class'].'"' : '').' type="'.(isset($v['type']) ? $v['type'] : 'text').'" value="'.$value.'" />';
 			}else if($v['type'] == 'textarea'){
-				$field .= $label.' <textarea name="'.$name.'" '.(isset($v['class']) ? 'class="'.$v['class'].'"' : '').' id="'.$id.'">'.$value.'</textarea>';
+				$field .= $label.' <textarea name="'.$name.'"  '.(isset($v['cols']) ? 'cols="'.$v['cols'].'"' : '').' '.(isset($v['rows']) ? 'rows="'.$v['rows'].'"' : '').' '.(isset($v['class']) ? 'class="'.$v['class'].'"' : '').' id="'.$id.'">'.$value.'</textarea>';
 			}else if($v['type'] == 'select'){
 				$options = array();
 				foreach ($v['options'] as $optionValue => $optionName) {

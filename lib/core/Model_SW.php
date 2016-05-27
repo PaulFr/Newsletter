@@ -17,7 +17,7 @@ class Model_SW{
 	public function __construct(){
 		$modelName = get_class($this); 
 		$this->primaryKey = Config::get('PREFIX_PRIMARY_KEY') ? strtolower($modelName[0]).'_id' : 'id';
-		if(empty($table)){
+		if(empty($this->table)){
 			if(strlen(preg_replace('[^A-Z]', '', $modelName)) > 1){
 				$modelName = substr(preg_replace('#([A-Z])#', '_$1', $modelName), 1);
 			}
@@ -106,6 +106,12 @@ class Model_SW{
 		if(isset($req['join'])){
 			foreach($req['join'] as $k=>$v){
 				$sql .= 'LEFT JOIN '.$k.' ON '.$v.' '; 
+			}
+		}
+
+		if(isset($req['rjoin'])){
+			foreach($req['rjoin'] as $k=>$v){
+				$sql .= 'RIGHT JOIN '.$k.' ON '.$v.' '; 
 			}
 		}
 
@@ -239,6 +245,7 @@ class Model_SW{
 		if($action == 'insert'){
 			$this->id = $this->Db->lastInsertId(); 
 		}
+		$this->lastSql = $sql;
 		return $res;
 	}
 
