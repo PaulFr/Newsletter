@@ -7,6 +7,9 @@ class SubscribersListsController extends AppController{
 
 	public function create($id=0){
 		$id = (int) $id;
+		$subscribers = array();
+		$subscriberList = array();
+
 		if($id > 0){
 
 			$subscribers = $this->Subscriber->find(array(
@@ -28,9 +31,11 @@ class SubscribersListsController extends AppController{
 			if(!$subscriberList){ 
 				Core::throwError(404); 
 			}
-			$this->SubscriberList->prefill($id);
-			$this->SubscriberList->prefilled['name'] = $subscriberList[0]->name;
-			$this->SubscriberList->prefilled['description'] = $subscriberList[0]->description;
+		}else{
+			$subscribers = $this->Subscriber->find(array(
+				'fields' => '*, Subscriber.id as client_id, 0 as in_list',
+				'group' => 'Subscriber.id',                                                                                                          
+				));
 		}
 
 		if(isset($this->request->datas['SubscriberList'])){
@@ -39,6 +44,7 @@ class SubscribersListsController extends AppController{
 				'description' => $this->request->datas['SubscriberList']['description'],
 				// AJOUTER LES SUBSCRIBERS DE LA TABLE ET DU TEXTAREA
 				);
+
 
 			if(isset($this->request->datas['SubscriberList']['list_id'])){
 				$datas['id'] = $this->request->datas['SubscriberList']['list_id'];
@@ -118,6 +124,7 @@ class SubscribersListsController extends AppController{
 		$articlesPerPage = 10;
 		$nbArticles = $this->SubscriberList->findCount();
 		$nbPages = ceil($nbArticles/$articlesPerPage);
+		if($nbPages <= 0) $nbPages = 1;
 		if($page > $nbPages) $page = $nbPages;
 		$startAt = ($page-1)*$articlesPerPage;
 
@@ -135,7 +142,6 @@ class SubscribersListsController extends AppController{
 				),
 			'limit' => $startAt.','.$articlesPerPage,
 			));
-		var_dump($this->SubscriberList);
 		$this->view->bind($v);
 	}
 
