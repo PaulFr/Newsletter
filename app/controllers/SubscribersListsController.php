@@ -20,14 +20,12 @@ class SubscribersListsController extends AppController{
 					'lists as List' => 'SubscriberList.list_id = List.id'
 					),                                                                                                            
 				));
-			$subscriberList = $this->SubscriberList->find(array(
-				'fields' => '*',
-				'group' => 'List.id',
-				'join' => array(
-					'lists as List' => 'SubscriberList.list_id = List.id',
-					),
-				'conditions' => array('SubscriberList.list_id' => $id),                                                                                                               
+			$subscriberList = $this->Liste->find(array(
+				'fields' => 'Liste.id as list_id, Liste.*',
+				'group' => 'Liste.id',
+				'conditions' => array('Liste.id' => $id),                                                                                                               
 				));
+
 			if(!$subscriberList){ 
 				Core::throwError(404); 
 			}
@@ -45,6 +43,13 @@ class SubscribersListsController extends AppController{
 				// AJOUTER LES SUBSCRIBERS DE LA TABLE ET DU TEXTAREA
 				);
 
+			
+
+			$subslist = $this->addExternalSubscribers($this->request->datas['SubscriberList']['externes']);
+			foreach($this->request->datas['SubscriberList']['subscribers'] as $id_sub => $v){
+				$subslist[] = $id_sub;
+			}
+
 
 			if(isset($this->request->datas['SubscriberList']['list_id'])){
 				$datas['id'] = $this->request->datas['SubscriberList']['list_id'];
@@ -53,12 +58,22 @@ class SubscribersListsController extends AppController{
 			
 
 			$this->Liste->save($datas);
+			var_dump($this->Liste->lastSql);
+			$this->addSubscribers($subslist, $id > 0 ? $id : $this->Liste->id);
+
 			$this->Session->setFlash('La liste a bien été '.(($id > 0) ? 'editée' : 'créée').'.', 'success');
 			$this->response->redirect('SubscribersLists');
 
 
 		}
 		$this->view->bind(array('id' => $id, 'subscriberList' => $subscriberList, 'subscribers' => $subscribers));
+	}
+
+	public function addSubscribers($subscribers, $id){
+		$this->SubscriberList->Db->query('DELETE FROM subscriber_lists WHERE list_id='.$id);
+		foreach($subscribers as $subscriber){
+			$insert = $this->SubscriberList->save(array('list_id'=>$id, 'subscriber_id' => $subscriber));
+		}
 	}
 
 	public function view($id){
@@ -80,8 +95,28 @@ class SubscribersListsController extends AppController{
 		$this->view->bind($v);
 	}
 
-	public function addExternalSubscriber(){
+	public function addExternalSubscribers($emails){
+		$subscribers = array();
+		$emails = explode("\r\n", $emails);
+		
+		foreach($emails as $email){
+			$email = trim($email);
+			if(!empty($email)){
+				$subscriber = $this->Subscriber->findFirst(array(
+					'fields' => 'Subscriber.id',
+					'conditions' => array('Subscriber.email' => $email),
+				));
 
+				if($subscriber){
+					$subscribers[] = $subscriber->id;
+				}else{
+					$insert = $this->Subscriber->save(array('email' => $email, 'created' => date("Y-m-d H:i:s",time())));
+					if($insert) $subscribers[] = (int) $this->Subscriber->id;
+				}
+			}
+		}
+
+		return $subscribers;
 	}
 
 	public function deleteSubscriber($id_list, $id_subscriber){
@@ -122,7 +157,7 @@ class SubscribersListsController extends AppController{
 	public function index($page=1){
 		if($page < 1) $page = 1;
 		$articlesPerPage = 10;
-		$nbArticles = $this->SubscriberList->findCount();
+		$nbArticles = $this->Liste->findCount();
 		$nbPages = ceil($nbArticles/$articlesPerPage);
 		if($nbPages <= 0) $nbPages = 1;
 		if($page > $nbPages) $page = $nbPages;
@@ -133,12 +168,12 @@ class SubscribersListsController extends AppController{
 			'nbPages' => $nbPages,
 			));
 
-		$v['req'] = $this->SubscriberList->find(array(
-			'fields' => 'SubscriberList.list_id, COUNT(SubscriberList.subscriber_id) as count, List.name, List.description',
-			'order' => 'List.name',
+		$v['req'] = $this->Liste->find(array(
+			'fields' => 'Liste.id as list_id, COUNT(SubscriberList.subscriber_id) as count, Liste.name, Liste.description',
+			'order' => 'Liste.name',
 			'group' => 'SubscriberList.list_id',
 			'join' => array(
-				'lists as List' => 'SubscriberList.list_id = List.id',
+				'subscriber_lists as SubscriberList' => 'SubscriberList.list_id = Liste.id',
 				),
 			'limit' => $startAt.','.$articlesPerPage,
 			));

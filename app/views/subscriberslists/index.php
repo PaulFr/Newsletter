@@ -26,7 +26,7 @@
             <tbody>
                 <?php foreach($req as $k => $v): ?>
                 <tr id="list-<?= $v->list_id ?>">
-                    <td><a href="<?= Router::url('subscribersLists/view/'.$v->list_id); ?>"><?= $v->name ?></a></td>
+                    <td><a href="<?= Router::url('subscribersLists/create/'.$v->list_id); ?>"><?= $v->name ?></a></td>
                     <td><?= $v->count ?></td>
                     <td><?= $v->description ?></td>
                     <td class="actions"><a href="<?php echo Router::url('subscribersLists/create/'.$v->list_id); ?>" class="edit-campagne" title="Modifier la liste"><img src="<?php echo Router::wwwroot('img/icons/actions/edit.png'); ?>" alt="" /></a>

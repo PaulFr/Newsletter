@@ -12,7 +12,8 @@ class Model_SW{
 	public $validateRules    = array();
 	public $validateErrors   = array();
 	public $lastSql; 
-	public $prefilled        = array();                
+	public $prefilled        = array();         
+	public $noPrimary		 = false;       
 
 	public function __construct(){
 		$modelName = get_class($this); 
@@ -225,14 +226,14 @@ class Model_SW{
 		$fields =  array();
 		$d = array(); 
 		foreach($data as $k=>$v){
-			if($k!=$this->primaryKey){
+			if($k!=$this->primaryKey || $this->noPrimary == true){
 				$fields[] = "$k=:$k";
 				$d[":$k"] = $v; 
 			}elseif(!empty($v)){
 				$d[":$k"] = $v; 
 			}
 		}
-		if(isset($data[$key]) && !empty($data[$key])){
+		if((isset($data[$key]) && !empty($data[$key])) && $this->noPrimary == false){
 			$sql = 'UPDATE '.$this->table.' SET '.implode(',',$fields).' WHERE '.$key.'=:'.$key;
 			$this->id = $data[$key]; 
 			$action = 'update';

@@ -11,6 +11,7 @@ class SubscriberList extends AppModel{
 	public function  __construct(){
 		parent::__construct();
 		$this->primaryKey = 'list_id';
+		$this->noPrimary = true;
 	}
 
 }
