@@ -51,7 +51,7 @@ foreach($toSend as $mail){
 				}
 				return Router::url('tracks/link/'.base64_encode($matches[0]).'/'.$mail->newsletter_id.'/{sid}');
 			}, $nl);
-		$newsletters[$mail->newsletter_id] = $nl;
+		$newsletters[$mail->newsletter_id] = $nl.' <img src="'.Router::url('tracks/open/'.$mail->newsletter_id.'/{sid}').'"/>';
 	}
 
 	//On créer le message

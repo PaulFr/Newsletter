@@ -19,6 +19,20 @@ class TracksController extends AppController{
 			$this->response->redirect($url);
 		}
 
+		public function open($nid, $sid){
+			$data = array(
+				'type' => 'open',
+				'data' => 1,
+				'newsletter_id' => $nid,
+				'subscriber_id' => $sid
+			);
+			$this->Track->save($data);
+			
+			header ('Content-Type: image/png');
+			readfile(WWWROOT.'/img/transp.png');
+			exit;
+		}
+
   }
 
 

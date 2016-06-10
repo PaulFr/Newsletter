@@ -20,6 +20,10 @@
     <link rel="stylesheet" href="<?php echo Router::wwwroot('js/jwysiwyg/jquery.wysiwyg.old-school.css'); ?>" />
     <script type="text/javascript" src="<?php echo Router::wwwroot('js/jwysiwyg/jquery.wysiwyg.js'); ?>"></script>
 
+    <script type="text/javascript" src="<?php echo Router::wwwroot('js/jwysiwyg/controls/wysiwyg.colorpicker.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo Router::wwwroot('js/jwysiwyg/controls/wysiwyg.image.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo Router::wwwroot('js/jwysiwyg/controls/wysiwyg.link.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo Router::wwwroot('js/jwysiwyg/controls/wysiwyg.table.js'); ?>"></script>
 
     <!-- Tooltipsy - http://tooltipsy.com/ -->
     <script type="text/javascript" src="<?php echo Router::wwwroot('js/tooltipsy.min.js'); ?>"></script>
