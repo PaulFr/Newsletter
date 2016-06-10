@@ -20,7 +20,8 @@ $toSend = $controller->Track->find(array(
 
 foreach($toSend as $mail){
 	$replacements[$mail->email] = array(
-    '{sid}'=>$mail->subscriber_id
+    '{sid}'=>$mail->subscriber_id,
+    '{token}' => sha1($mail->subscriber_id.'aZs874m@!')
   );
 }
 
@@ -51,7 +52,7 @@ foreach($toSend as $mail){
 				}
 				return Router::url('tracks/link/'.base64_encode($matches[0]).'/'.$mail->newsletter_id.'/{sid}');
 			}, $nl);
-		$newsletters[$mail->newsletter_id] = $nl.' <img src="'.Router::url('tracks/open/'.$mail->newsletter_id.'/{sid}').'"/>';
+		$newsletters[$mail->newsletter_id] = $nl.' <img src="'.Router::url('tracks/open/'.$mail->newsletter_id.'/{sid}').'"/><br/><hr><center><a href="'.Router::url('external/unsub/{sid}/{token}').'">Cliquez ici pour vous désinscrire</a></center>';
 	}
 
 	//On créer le message
