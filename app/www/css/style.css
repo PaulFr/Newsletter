@@ -393,6 +393,9 @@ body{
 #content .good{
 	color: #6F9106;
 }
+#content .info{
+	color: darkblue;
+}
 #content .neutral{
 	color: #FF7400;
 }
@@ -608,14 +611,14 @@ body{
 #content .bloc .shortcut{
 	width: 105px;
 	text-align: center;
-	padding: 10px 0;
+	padding: 10px 10px;
 	text-decoration: none;
 	/*+border-radius:3px;*/
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	-khtml-border-radius: 3px;
 	border-radius: 3px 3px 3px 3px;
-	margin: 5px;
+	margin: 10px;
 	color: #6D6D6D;
 	border: 1px solid #D0D2D4;
 	position: relative;
