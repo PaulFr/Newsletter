@@ -2,7 +2,7 @@
 
 class CampaignsController extends AppController{
 
-    public $requiredModels = array('User', 'Newsletter');
+    public $requiredModels = array('User', 'Newsletter', 'Subscriber', 'SubscriberList', 'Liste', 'Tracker');
     public $requiredPlugins = array('Session');
 
     public function create($id=0){
@@ -104,6 +104,51 @@ class CampaignsController extends AppController{
 				'limit' => $startAt.','.$articlesPerPage,
 			));
 			$this->view->bind($v);
+		}
+
+		public function send($idCampagne=0){
+			$idCampagne = (int) $idCampagne;
+			$subscriberList = array();
+
+			if($idCampagne > 0){
+				$subscriberList = $this->Liste->find(array(
+				'fields' => 'Liste.*, Count(*) as nbAbonnes',
+				'group' => 'Liste.id',  
+				'join' => array(
+					'subscriber_lists as SubscriberList' => 'SubscriberList.list_id = Liste.id',
+				),                                                                                                           
+				));
+				$this->view->setLayout('empty');
+				$this->view->bind(array('id' => $idCampagne, 'subscriberList' => $subscriberList));
+			}
+
+			if(isset($this->request->datas['SubscriberList']['list'])){
+
+				foreach ($this->request->datas['SubscriberList']['list'] as $listId) {
+					$datas['type'] = 'send';
+					$datas['data'] = 0;
+					$datas['newsletter_id'] = $listId;
+					$datas['subscriber_id'] = array();
+					$subscribers = $this->Subscriber->find(array(
+						'fields' => 'id',
+						'conditions' => "id = $listId",                                 
+					));
+					foreach ($subscribers as $sub) {
+						var_dump($sub);
+						array_push($datas['subscriber_id'], $sub->id);
+					}
+					//var_dump($listId['id']);
+				}
+
+/*				$this->Tracker->save($datas);
+				$this->addSubscribers($subslist, $id > 0 ? $id : $this->Liste->id);
+*/
+				$this->Session->setFlash('La campagne va être envoyer, cela peut prendre du temps', 'success');
+				//$this->response->redirect('campaigns');
+
+
+			}
+
 		}
 
 
