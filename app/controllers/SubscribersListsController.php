@@ -58,7 +58,6 @@ class SubscribersListsController extends AppController{
 			
 
 			$this->Liste->save($datas);
-			var_dump($this->Liste->lastSql);
 			$this->addSubscribers($subslist, $id > 0 ? $id : $this->Liste->id);
 
 			$this->Session->setFlash('La liste a bien été '.(($id > 0) ? 'editée' : 'créée').'.', 'success');
