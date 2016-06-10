@@ -43,6 +43,7 @@
 </header>
 <body style="background-color:white;">
 	<div id="content" style="margin:0;width:100%">
+        <?= $this->controller->Session->flash(); ?>
 		<?= $this->contentForLayout; ?>
 	</div>
 </body>

@@ -2,7 +2,7 @@
 
 class CampaignsController extends AppController{
 
-    public $requiredModels = array('User', 'Newsletter', 'Subscriber', 'SubscriberList', 'Liste', 'Tracker');
+    public $requiredModels = array('User', 'Newsletter', 'Subscriber', 'SubscriberList', 'Liste', 'Track');
     public $requiredPlugins = array('Session');
 
     public function create($id=0){
@@ -110,6 +110,7 @@ class CampaignsController extends AppController{
 			$idCampagne = (int) $idCampagne;
 			$subscriberList = array();
 
+			//Affichage du formulaire d'envoi
 			if($idCampagne > 0){
 				$subscriberList = $this->Liste->find(array(
 				'fields' => 'Liste.*, Count(*) as nbAbonnes',
@@ -122,29 +123,24 @@ class CampaignsController extends AppController{
 				$this->view->bind(array('id' => $idCampagne, 'subscriberList' => $subscriberList));
 			}
 
+			//Gestion de l'envoi
 			if(isset($this->request->datas['SubscriberList']['list'])){
+				$lists = implode(',', array_keys($this->request->datas['SubscriberList']['list']));
+				$subscribers = $this->SubscriberList->find(array(
+					'fields' => 'subscriber_id',
+					'conditions' => 'list_id IN ('.$lists.')'
+				));
 
-				foreach ($this->request->datas['SubscriberList']['list'] as $listId) {
-					$datas['type'] = 'send';
-					$datas['data'] = 0;
-					$datas['newsletter_id'] = $listId;
-					$datas['subscriber_id'] = array();
-					$subscribers = $this->Subscriber->find(array(
-						'fields' => 'id',
-						'conditions' => "id = $listId",                                 
+				foreach ($subscribers as $subscriber) {
+					$this->Track->save(array(
+						'type' => 'send',
+						'data' => 0,
+						'subscriber_id' => $subscriber->subscriber_id,
+						'newsletter_id' => $idCampagne
 					));
-					foreach ($subscribers as $sub) {
-						var_dump($sub);
-						array_push($datas['subscriber_id'], $sub->id);
-					}
-					//var_dump($listId['id']);
 				}
-
-/*				$this->Tracker->save($datas);
-				$this->addSubscribers($subslist, $id > 0 ? $id : $this->Liste->id);
-*/
-				$this->Session->setFlash('La campagne va être envoyer, cela peut prendre du temps', 'success');
-				//$this->response->redirect('campaigns');
+				$this->Session->setFlash('La campagne va être envoyée, cela peut prendre du temps', 'success');
+				$this->response->redirect('campaigns/send/'.$idCampagne);
 
 
 			}
