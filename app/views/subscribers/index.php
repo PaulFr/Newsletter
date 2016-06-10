@@ -31,8 +31,8 @@
                     <td><?= $v->firstname ?></td>
                     <td><?= $v->email ?></td>
                     <td><?= $v->created ?></td>
-                    <td class="actions"><a href="<?php echo Router::url('subscribers/create/'.$v->id); ?>" class="edit-campagne" title="Edit this content"><img src="<?php echo Router::wwwroot('img/icons/actions/edit.png'); ?>" alt="" /></a>
-                    <a href="<?php echo Router::url('subscribers/delete/'.$v->id); ?>" onclick="return confirm('Toute suppression est définitive, êtes-vous sur ?');" class="delete-campagne" title="Supprimer la campagne"><img src="<?php echo Router::wwwroot('img/icons/actions/delete.png'); ?>" alt="" /></a></td>
+                    <td class="actions"><a href="<?php echo Router::url('subscribers/create/'.$v->id); ?>" class="edit-campagne" title="Editer l'abonné"><img src="<?php echo Router::wwwroot('img/icons/actions/edit.png'); ?>" alt="" /></a>
+                    <a href="<?php echo Router::url('subscribers/delete/'.$v->id); ?>" onclick="return confirm('Toute suppression est définitive, êtes-vous sur ?');" class="delete-campagne" title="Supprimer l'abonné"><img src="<?php echo Router::wwwroot('img/icons/actions/delete.png'); ?>" alt="" /></a></td>
                 </tr>
             <?php  endforeach; ?>
                 
