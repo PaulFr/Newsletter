@@ -6,6 +6,10 @@ $controller = new Controller_SW(null, null);
 $controller->loadModel('Track');
 $controller->loadModel('Newsletter');
 
+$replacements = array();
+
+
+
 //On selectionne les 100 prochains mails à envoyer
 $toSend = $controller->Track->find(array(
 	'fields' => 'Track.id tracker_id, Subscriber.email, Newsletter.title, Newsletter.content, Track.subscriber_id, Track.newsletter_id',
@@ -14,6 +18,11 @@ $toSend = $controller->Track->find(array(
 	'limit' => '0,100'
 ));
 
+foreach($toSend as $mail){
+	$replacements[$mail->email] = array(
+    '{sid}'=>$mail->subscriber_id
+  );
+}
 
 //On utilise un transporteur distant en attendant (mail epsi)
 $transport = Swift_SmtpTransport::newInstance('smtp.office365.com', 587, 'tls')
@@ -22,6 +31,9 @@ $transport = Swift_SmtpTransport::newInstance('smtp.office365.com', 587, 'tls')
 
 
 $mailer = Swift_Mailer::newInstance($transport);
+
+$decorator = new Swift_Plugins_DecoratorPlugin($replacements);
+$mailer->registerPlugin($decorator);
 
 $numSent = 0;
 $newsletters = array();
@@ -37,14 +49,14 @@ foreach($toSend as $mail){
 				if(preg_match('#(jpg|jpeg|png|gif|bmp)#',$matches[0])){
 					return $matches[0];
 				}
-				return Router::url('tracks/link/'.base64_encode($matches[0]).'/'.$mail->newsletter_id);
+				return Router::url('tracks/link/'.base64_encode($matches[0]).'/'.$mail->newsletter_id.'/{sid}');
 			}, $nl);
 		$newsletters[$mail->newsletter_id] = $nl;
 	}
 
 	//On créer le message
 	$message = Swift_Message::newInstance($mail->title)
-	  ->setFrom(array('paul.frinchaboy@epsi.fr' => 'No Reply'))
+	  ->setFrom(array('paul.frinchaboy@epsi.fr' => 'No-Reply'))
 	  ->setTo(array($mail->email))
 	  ->setBody($newsletters[$mail->newsletter_id], 'text/html')
 	  ;
