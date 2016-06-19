@@ -91,7 +91,7 @@ class CampaignsController extends AppController{
 
 			$links = $this->Track->find(array(
 				'fields' => 'Track.data as link, COUNT(Track.id) as nbClick',
-				'conditions' => array('Track.newsletter_id' => $id),
+				'conditions' => array('Track.newsletter_id' => $id, 'Track.type' => 'link'),
 				'group' => 'Track.data',
 				'order' => 'nbClick DESC'
 			));
