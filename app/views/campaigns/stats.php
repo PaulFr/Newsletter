@@ -49,7 +49,7 @@
             <tbody>
                 <?php foreach ($links as $link): ?>
                     <tr>
-                        <td><h4><?= $link->nbClick ?> clique<?= if($link->nbClick < 2) echo 's';?></h4></td>
+                        <td><h4><?= $link->nbClick ?> clique<?php if($link->nbClick < 2) echo 's';?></h4></td>
                         <td><a href="<?= $link->link ?>"><?= $link->link ?></a></td>
                     </tr>
                 <?php endforeach; ?>
