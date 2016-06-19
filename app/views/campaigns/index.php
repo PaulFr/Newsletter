@@ -31,7 +31,8 @@
                                 <td><?= $v->firstname.' '.$v->lastname ?></td>
                                 <td><a href="<?php echo Router::url('campaigns/index/'.$v->category); ?>"><?= $v->category ?></a></td>
                                 <td><?= $v->created ?></td>
-                                <td class="actions" style="width:100px">
+                                <td class="actions" style="width:130px">
+                                    <a href="<?php echo Router::url('campaigns/stats/').$v->id; ?>" class="zoombox w500 h400" title="Voir les statistiques de la campagne"><img src="/Newsletter/img/icons/chart-bar.png" alt="Envoyer" style="margin-bottom:-4px;width:27px"></a>
                                     <a href="<?php echo Router::url('campaigns/send/').$v->id; ?>" class="zoombox w500 h400" title="Envoyer la campagne"><img src="/Newsletter/img/icons/mail-forward.png" alt="Envoyer" style="margin-bottom:-4px;width:27px"></a>
                                     <a href="<?php echo Router::url('campaigns/create/'.$v->id); ?>" class="edit-campagne" title="Modifier la campagne"><img src="<?php echo Router::wwwroot('img/icons/actions/edit.png'); ?>" alt="" /></a>
                                     <a href="<?php echo Router::url('campaigns/delete/'.$v->id); ?>" onclick="return confirm('Toute suppression est définitive, êtes-vous sur ?');" class="delete-campagne" title="Supprimer la campagne"><img src="<?php echo Router::wwwroot('img/icons/actions/delete.png'); ?>" alt="" /></a></td>
