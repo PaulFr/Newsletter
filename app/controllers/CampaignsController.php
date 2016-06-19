@@ -59,6 +59,56 @@ class CampaignsController extends AppController{
 			$this->view->bind($v);
 		}
 
+		public function stats($id){
+			$this->view->setLayout('empty');
+			$nbSending = $this->Track->findCount(array(
+				'type' => 'send',
+				'data' => 0,
+				'newsletter_id' => $id
+			));
+
+			$nbSent = $this->Track->findCount(array(
+				'type' => 'send',
+				'data' => 1,
+				'newsletter_id' => $id
+			));
+
+			$nbFailed = $this->Track->findCount(array(
+				'type' => 'send',
+				'data' => 2,
+				'newsletter_id' => $id
+			));
+
+			$nbOpened = $this->Track->findCount(array(
+				'type' => 'open',
+				'newsletter_id' => $id
+			));
+
+			$nbClicked = $this->Track->findCount(array(
+				'type' => 'link',
+				'newsletter_id' => $id
+			));
+
+			$links = $this->Track->find(array(
+				'fields' => 'Track.data as link, COUNT(Track.id) as nbClick',
+				'conditions' => array('Track.newsletter_id' => $id),
+				'group' => 'Track.data',
+				'order' => 'nbClick DESC'
+			));
+
+
+			$counts = array(
+				'nbSending' => $nbSending,
+				'nbSent' => $nbSent,
+				'nbFailed' => $nbFailed,
+				'nbOpened' => $nbOpened,
+				'nbClicked' => $nbClicked,
+				'links' => $links
+			);
+
+			$this->view->bind($counts);
+		}
+
 		public function delete($id){
 			$nl = $this->Newsletter->findFirst(array(
 				'fields' => 'Newsletter.id',
