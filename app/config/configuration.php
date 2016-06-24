@@ -9,7 +9,7 @@ $config['development'] = array(
 		'default' => array(
 			'host'          => 'localhost',
 			'user'          => 'root',
-			'password'      => '',
+			'password'      => 'root',
 			'database' => 'newsletter',
 			'prefix'        => '',
 		),
@@ -24,7 +24,7 @@ $config['production'] = array(
 		'default' => array(
 			'host'          => 'localhost',
 			'user'          => 'root',
-			'password'      => '',
+			'password'      => 'root',
 			'database' => 'newsletter',
 			'prefix'        => '',
 		),

@@ -6,7 +6,7 @@ define('ROOT', dirname(APPROOT));	  														#Define access to the main fol
 define('CACHE', APPROOT.SEPARATOR.'cache');													#Define access to cache folder.
 define('LIB', ROOT.SEPARATOR.'lib');														#Define access to lib folder.
 define('CORE', LIB.SEPARATOR.'core');														#Define access to system core folder.
-define('URL', 'http://application/Newsletter');
+define('URL', 'http://localhost/Newsletter');
 
 define('MODE', 'development');																#Define the project mode. (development or production)
 

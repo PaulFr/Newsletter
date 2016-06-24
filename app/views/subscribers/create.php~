@@ -20,7 +20,7 @@
                 <div class="content">
                     <form action="<?= Router::url('subscribers/csv') ?>" id="form-import" method="POST" enctype="multipart/form-data">
                         <div class="input required">
-                            <label for="importList">Importer un fichier d'abonnés <span class="info">ficher .csv (voir un <a href="<?php echo Router::wwwroot('img/import-exemple.jpg'); ?>" class="zoombox w450 h600" alt="exemple import csv" title="Aperçu d'un exemple de fichier d'import"> exemple ici</a>)</span></label>
+                            <label for="importList">Importer un fichier d'abonnés <span class="info">ficher .csv (voir un <a href="<?php echo Router::wwwroot('img/import-exemple.jpg'); ?>." class="zoombox w450 h600" alt="exemple import csv" title="Aperçu d'un exemple de fichier d'import"> exemple ici</a>)</span></label>
                             <input type="file" accept=".csv" style="width:100%" name="importList">
                         </div>
                         
